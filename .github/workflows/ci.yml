@@ -53,5 +53,5 @@ jobs:
     - name: Build Image
       run: |
         docker pull amd64/alpine:3.13
-        docker build --rm --tag petenorth/external-dns:latest-amd64 --build-arg VERSION="latest" --build-arg ARCH="amd64" .
+        DOCKER_BUILDKIT=1 docker build --rm --tag petenorth/external-dns:latest-amd64 --build-arg VERSION="latest" --build-arg ARCH="amd64" .
         
