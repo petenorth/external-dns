@@ -49,3 +49,9 @@ jobs:
       with:
         path-to-profile: profile.cov
       if: github.actor != 'nektos/act'
+      
+    - name: Build Image
+      run: |
+        docker pull amd64/alpine:3.13
+        docker build --rm --tag petenorth/external-dns:latest-amd64 --build-arg VERSION="latest" --build-arg ARCH="amd64" .
+        
